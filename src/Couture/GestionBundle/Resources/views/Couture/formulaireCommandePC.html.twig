@@ -1,0 +1,72 @@
+{% extends "CoutureGestionBundle:Couture:index.html.twig" %}
+{% block main %}
+    <div class="row">
+        <div class="col-md-9">
+            <div class="">
+                <center><h4>Formulaire d'ajout d'une nouvelle commande</h4></center>
+                <hr class="colorgraph">
+                {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+                {# Les erreurs générales du formulaire. #}
+                {{ form_errors(form) }}
+                <hr>
+                <div class="form-group">
+                    {# Génération du label. #}
+                    {{ form_label(form.idClient, "Client", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.idClient) }}
+                    <div class="col-sm-6">
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.idClient, {
+                            'attr': {
+                                'id': 'autoclient',
+                                'class': 'form-control'
+                            }
+                        })}}
+                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    {# Génération du label. #}
+                    {{ form_label(form.nbModele, "Nombre de Modéle", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.nbModele) }}
+
+                    <div class="col-sm-6">
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.nbModele, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+                <span style="margin-left:30%">{{ form_widget(form.Creation, {'attr': {'class': 'btn btn-primary'}}) }}</span>
+
+                {# Génération automatique des champs pas encore écrits.
+                    Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+                    et tous les champs cachés (type « hidden »). #}
+                {{ form_rest(form) }}
+          
+                {# Fermeture de la balise <form> du formulaire HTML #}
+                {{ form_end(form) }}
+            </div>
+        </div>
+        <div class="col-md-3">
+            <center><h4 class="panel-heading alert-danger">Actions à effectuer</h4></center>
+            <hr class="colorgraph">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="{{ path("couture_gestion_couture_add_commande")}}"><button type="button" class="btn btn-success btn-block"><span class="glyphicon glyphicon-list"></span> Nouvelle Commande</button></a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{{ path("couture_gestion_couture_add_modele")}}"><button type="button" class="btn btn-info btn-block"><span class="glyphicon glyphicon-list"></span> Nouvelle Commande</button></a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{{ path("couture_gestion_couture_add_modele")}}"><button type="button" class="btn btn-danger btn-block"><span class="glyphicon glyphicon-list"></span> Nouvelle Commande</button></a>
+                </li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-edit"></span> Impression liste modèle</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

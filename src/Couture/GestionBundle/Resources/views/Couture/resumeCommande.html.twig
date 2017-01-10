@@ -1,0 +1,75 @@
+{% extends "CoutureGestionBundle:Couture:index.html.twig" %}
+{% block main %}
+	 <div class="row">
+        <div class="col-md-3">
+        	<center><h4>Details commande</h4></center>
+                <hr class="colorgraph">
+        	<ul class="list-group">
+        		
+			 	<li class="list-group-item">Prenom client : {{ commande.prenomClient }}</li>
+			 	<li class="list-group-item">Nom client : {{ commande.nomClient }}</li>
+                <li class="list-group-item">Télephone client : {{ commande.telephoneClient }}</li>
+			 	<li class="list-group-item">Date commande : {{ commande.dateCommande | date('Y-m-d')}}</li>
+			 	<li class="list-group-item">Etat : Non livré</li>
+			 	<li class="list-group-item">Nombre de modèles : {{ commande.nbModele }}</li>
+			</ul>
+        </div>
+        <div class="col-md-6">
+        	<center><h4>Détails modéles commandés</h4></center>
+                <hr class="colorgraph">
+        	<div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover ">
+                <thead>
+                    <th>Modèle</th>
+                    <th>Prix Unitaire</th>
+                    <th>Quantite</th>
+                    <th>Prix Total</th>
+                </thead>      
+                <tbody>
+                {% for tag in commandeProduit %}
+                    <tr>
+                    	<td>{{ tag.modele.designation }}</td>
+                        <td>{{ tag.prixUnitaire }}</td>
+                        <td>{{ tag.quantite }}</td>
+                        <td>{{ tag.montantTotal }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover ">
+                <thead>
+                    <th>Net à payer</th>
+                </thead>      
+                <tbody>
+                    <tr>
+                        <td>{{ pt }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-3">
+    	<center><h4> Actions à effectuer</h4></center>
+        <hr class="colorgraph">
+        <ul class="list-group">
+        	<li class="list-group-item">
+        		<button type="button" class="btn btn-success btn-block"><span class="glyphicon glyphicon-list"></span> Avance</button>
+        	</li>
+        	<li class="list-group-item">
+        		<button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-edit"></span> Facturation</button>
+        	</li>
+        	
+        	<li class="list-group-item">
+        		<button type="button" class="btn btn-warning btn-block"><span class="glyphicon glyphicon-stats"></span> Mesure Client</button>
+        	</li>
+            <li class="list-group-item">
+                <button type="button" class="btn btn-warning btn-block"><span class="glyphicon glyphicon-stats"></span> Liste Commande</button>
+            </li>
+        </ul>
+        <hr class="colorgraph">
+     </div>
+    </div>
+{% endblock %}
+

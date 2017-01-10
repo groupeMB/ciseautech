@@ -1,0 +1,116 @@
+{% extends "CoutureGestionBundle:Couture:index.html.twig" %}
+{% block main %}
+    <div class="row">
+        <div class="col-md-8">
+        	<div class="">
+                <center><h4>Formulaire d'ajout d'un nouveau client</h4></center>
+                <hr class="colorgraph">
+                {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+                {# Les erreurs générales du formulaire. #}
+                {{ form_errors(form) }}
+                <hr>
+                <div class="form-group">
+                    {# Génération du label. #}
+                    {{ form_label(form.nom, "Nom", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.nom) }}
+
+                    <div class="col-sm-6">
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {# Génération du label. #}
+                    {{ form_label(form.prenom, "Prénoms", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.prenom) }}
+
+                    <div class="col-sm-6">
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {# Génération du label. #}
+                    {{ form_label(form.sexe, "Sexe", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.sexe) }}
+
+                    <div class="col-sm-4">
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.sexe, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {# Génération du label. #}
+                    {{ form_label(form.telephone, "Téléphone", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.telephone) }}
+
+                    <div class="col-sm-6">
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {# Génération du label. #}
+                    {{ form_label(form.email, "Email", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.email) }}
+
+                    <div class="col-sm-6">
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {# Génération du label. #}
+                    {{ form_label(form.adresse, "Adresse", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.adresse) }}
+
+                    <div class="col-sm-6">
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.adresse, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {# Génération du label. #}
+                    {{ form_label(form.typeClient, "Type Client", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.typeClient) }}
+
+                    <div class="col-sm-4">
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.typeClient, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+                <span style="margin-left:30%">{{ form_widget(form.Creation, {'attr': {'class': 'btn btn-primary'}}) }}</span>
+
+                {# Génération automatique des champs pas encore écrits.
+                    Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+                    et tous les champs cachés (type « hidden »). #}
+                {{ form_rest(form) }}
+          
+                {# Fermeture de la balise <form> du formulaire HTML #}
+                {{ form_end(form) }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h4>Fidélisation de la clientèle</h4>
+            <hr class="colorgraph">
+            <img src="{{ app.request.schemeAndHttpHost ~ asset('bundles/couturegestion/images/client2.png') }}" alt="">
+            <img src="{{ app.request.schemeAndHttpHost ~ asset('bundles/couturegestion/images/medaille.png') }}" alt="">
+            <h4></h4>
+        </div>
+    </div>
+{% endblock %}

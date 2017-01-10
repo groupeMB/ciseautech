@@ -1,0 +1,87 @@
+couture_gestion_homepage:
+    path:     /
+    defaults: { _controller: CoutureGestionBundle:Default:index }
+
+couture_gestion_login:
+    path:     /login
+    defaults: { _controller: CoutureGestionBundle:Security:login }
+
+couture_gestion_presentation:
+    path:     /presentation
+    defaults: { _controller: CoutureGestionBundle:Security:presentation }
+
+couture_gestion_couture:
+    path:     /couture
+    defaults: { _controller: CoutureGestionBundle:Couture:index }
+
+couture_gestion_couture_add_client:
+    path:     /couture/ajouter/client
+    defaults: { _controller: CoutureGestionBundle:Couture:addClient }
+
+couture_gestion_couture_list_client:
+    path:     /couture/list/client
+    defaults: { _controller: CoutureGestionBundle:Couture:listClient }
+
+couture_gestion_couture_remove_client:
+    path:     /couture/remove/client/{identifiant}
+    defaults: { _controller: CoutureGestionBundle:Couture:removeClient }
+
+couture_gestion_couture_mesure_client:
+    path:     /couture/mesure/client/{identifiant}
+    defaults: { _controller: CoutureGestionBundle:Couture:mesureClient }
+
+couture_gestion_couture_afficher_client:
+    path:     /couture/afficher/client/{identifiant}
+    defaults: { _controller: CoutureGestionBundle:Couture:afficherClient }
+
+couture_gestion_couture_list_modele:
+    path:     /couture/list/modele
+    defaults: { _controller: CoutureGestionBundle:Couture:listModele }
+
+couture_gestion_couture_update_data:
+    path:     /couture/update/modele/{id}/{data}/{table}/{colonne}
+    defaults: { _controller: CoutureGestionBundle:Couture:updateData }
+
+couture_gestion_couture_add_modele:
+    path:     /couture/add/modele
+    defaults: { _controller: CoutureGestionBundle:Couture:addModele }
+
+couture_gestion_couture_list_commande:
+    path:     /couture/list/commande
+    defaults: { _controller: CoutureGestionBundle:Couture:listCommande }
+
+couture_gestion_couture_add_commande:
+    path:     /couture/add/commande
+    defaults: { _controller: CoutureGestionBundle:Couture:addCommande }
+
+couture_gestion_couture_new_add_commande:
+    path:     /couture/add/commande/new/client
+    defaults: { _controller: CoutureGestionBundle:Couture:formulaireNCCommande }
+
+couture_gestion_couture_potential_add_commande:
+    path:     /couture/add/commande/potential/client
+    defaults: { _controller: CoutureGestionBundle:Couture:formulairePCCommande }
+
+couture_gestion_couture_add_commande_produit:
+    path:     /couture/add/commandeProduit/{count}/{commande}
+    defaults: { _controller: CoutureGestionBundle:Couture:addCommandeProduit }
+
+couture_gestion_couture_resume_commande:
+    path:     /couture/resume/commande/{commande}
+    defaults: { _controller: CoutureGestionBundle:Couture:resumeCommande }
+
+couture_gestion_couture_autocomplete:
+    path:     /couture/autocomplete/client
+    defaults: { _controller: CoutureGestionBundle:Couture:clientAutocomplete }
+
+couture_gestion_comptabilite:
+    path:     /comptabilite
+    defaults: { _controller: CoutureGestionBundle:Comptabilite:index }
+
+couture_gestion_vente:
+    path:     /Vente
+    defaults: { _controller: CoutureGestionBundle:Vente:index }
+
+couture_gestion_parametrage:
+    path:     /parametrage
+    defaults: { _controller: CoutureGestionBundle:Parametrage:index }

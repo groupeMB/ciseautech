@@ -1,0 +1,93 @@
+/* Credit to bootsnipp.com for the css for the color graph */
+.colorgraph {
+  height: 5px;
+  border-top: 0;
+  background: #c4e17f;
+  
+  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+#logo
+{
+	border: 2px solid rgb(184, 77, 69); 
+	border-radius: 5px;
+}
+
+.mycolor
+{
+  background: rgb(184, 77, 69); 
+  border-radius: 5px;
+  color: white; 
+}
+
+.menu-haut li a 
+{
+	color: white;
+}
+
+.fixe
+{
+    display: block;
+}
+.flot
+{
+    display: none;
+}
+.zone_centre
+{
+	border: 1px solid rgb(184, 77, 69);
+	border-radius: 5px;
+}
+
+.list-group li a
+{
+  text-decoration:none;
+}
+
+#mytable thead th
+{
+ background: rgb(184, 77, 69); 
+  color: white;
+  font-size:0.9em;
+}
+#mytable tbody td
+{
+  font-size:0.9em;
+  background-color: white;
+}
+
+.menuLeft li ul
+{
+  border-radius: 0; 
+  width:100%; 
+  height: auto; 
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.menuLeft li ul li span a
+{
+  color: #B40431; 
+  text-decoration: none; 
+  background-color: none;
+}
+
+.menuLeft li ul li
+{
+  text-align:left; 
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.menuLeft li ul li:hover
+{
+  background-color: #B40431;
+  color: white;
+}
+.menuLeft li .legende li
+{
+  color: #B40431;
+  background-color: white;
+}

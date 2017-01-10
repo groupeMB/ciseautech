@@ -1,0 +1,107 @@
+{% extends "CoutureGestionBundle:Couture:index.html.twig" %}
+{% block main %}
+	 <div class="row">
+        <div class="col-md-4">
+        	<center><h4>Informations personnelles</h4></center>
+                <hr class="colorgraph">
+        	<ul class="list-group">
+        		<li class="list-group-item">Identifiant : {{ client.identifiant }}</li>
+			 	<li class="list-group-item">Prenom : {{ client.prenom }}</li>
+			 	<li class="list-group-item">Nom : {{ client.nom }}</li>
+			 	<li class="list-group-item">Sexe : {{ client.sexe }}</li>
+			 	<li class="list-group-item">Adresse : {{ client.adresse }}</li>
+			 	<li class="list-group-item">Telephone : {{ client.telephone }}</li>
+			 	<li class="list-group-item">Email : {{ client.email }}</li>
+			 	<li class="list-group-item">Type Client : {{ client.typeClient }}</li>
+			</ul>
+        </div>
+        <div class="col-md-4">
+        	<center><h4>Mesure du client</h4></center>
+                <hr class="colorgraph">
+        	<div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover ">
+                <thead>
+                    <th>Elements mésurés</th>
+                    <th>Valeurs (centimètres)</th>
+                </thead>                
+                <tbody>
+                    <tr>
+                    	<td>Epaule</td>
+                        <td>{{ mesure.epaule}}</td>
+                    </tr>
+                    <tr>
+                    	<td>Cou</td>
+                        <td>{{ mesure.cou }}</td>
+                    </tr>
+                    <tr>
+                    	<td>Manche Longue</td>
+                        <td>{{ mesure.mancheLongue}}</td>
+                    </tr>
+                    <tr>
+                    	<td>Manche courte</td>
+                        <td>{{ mesure.mancheCourte}}</td>
+                    </tr>
+                    <tr>
+                    	<td>Poignet</td>
+                        <td>{{ mesure.poignet}}</td>
+                    </tr>
+                    <tr>
+                    	<td>Longueur Boubou</td>
+                        <td>{{ mesure.longueurBoubou}}</td>
+                    </tr>
+                    <tr>
+                    	<td>Ceinture</td>
+                        <td>{{ mesure.ceinture}}</td>
+                    </tr>
+                    <tr>
+                    	<td>Longueur Pantalon</td>
+                        <td>{{ mesure.longueurPantalon}}</td>
+                    </tr>
+                    <tr>
+                    	<td>Cuisse</td>
+                        <td>{{ mesure.cuisse}}</td>
+                    </tr>
+                    {% if client.sexe == 'F' %}
+	                    <tr>
+	                    	<td>Longueur Taille</td>
+	                    	<td>{{ mesure.longueurTaille}}</td>
+	                    </tr>
+	                    <tr>
+	                    	<td>Hanche</td>
+	                    	<td>{{ mesure.hanche}}</td>
+	                    </tr>
+	                    <tr>
+	                    	<td>Longueur Taille Basse</td>
+	                    	<td>{{ mesure.longueurTailleBasse}}</td>
+	                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-4">
+    	<center><h4> Actions à effectuer</h4></center>
+        <hr class="colorgraph">
+        <ul class="list-group">
+        	<li class="list-group-item">
+        		<button type="button" class="btn btn-success btn-block"><span class="glyphicon glyphicon-list"></span> Nouvelle commande</button>
+        	</li>
+        	<li class="list-group-item">
+        		<button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-edit"></span> Modification mesure</button>
+        	</li>
+        	<li class="list-group-item">
+        		<a href="{{ path("couture_gestion_couture_remove_client", {'identifiant': client.identifiant})}}" data-confirm="Vous êtes sur le point de supprimer le client {{client.nom}} {{client.prenom}}. Etes-vous sûr de bien vouloir effectué cette opération ?"><button type="button" class="btn btn-danger btn-block"><span class="glyphicon glyphicon-remove"></span> Suppression client </button></a>
+        	</li>
+        	<li class="list-group-item">
+        		<button type="button" class="btn btn-warning btn-block"><span class="glyphicon glyphicon-stats"></span> Statiqtiques client</button>
+        	</li>
+        </ul>
+        <hr class="colorgraph">
+        <center>
+        	<img src="{{ app.request.schemeAndHttpHost ~ asset('bundles/couturegestion/images/client1.png') }}" width="70%" alt="">
+        	<h5>Avec Ciseau'Tech, Simplifiez votre quotidien !!!</h5>
+        </center>
+     </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,4 @@
+services:
+#    clientele_gestion.example:
+#        class: Clientele\GestionBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

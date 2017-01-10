@@ -1,0 +1,40 @@
+{% extends "CoutureGestionBundle:Couture:index.html.twig" %}
+{% block main %}
+	<center><h4>Liste des clients potentiels</h4></center>
+    <div class="col-md-12" >
+        <div class="table-responsive">
+            <table id="mytable" class="table table-bordered table-striped table-hover ">
+                <thead>
+                    <th>Identifiant</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Téléphone</th>
+                    <th>Type Client</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    {% for tag in client %}
+                         <tr>
+                            <td>{{ tag.identifiant}}</td>
+                            <td>{{ tag.nom}}</td>
+                            <td>{{ tag.prenom}}</td>
+                            <td>{{ tag.telephone}}</td>
+                            <td>{{ tag.typeClient}}</td>
+                            <td>
+                            	<a href="{{ path("couture_gestion_couture_mesure_client", {'identifiant': tag.identifiant})}}"><button class="btn btn-success btn-xs"><span class="glyphicon glyphicon-list-alt"></span></button></a>
+                                <a href="{{ path("couture_gestion_couture_afficher_client", {'identifiant': tag.identifiant})}}"><button class="btn btn-info btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></a>
+                            	<a href="{{ path("couture_gestion_couture_remove_client", {'identifiant': tag.identifiant})}}" data-confirm="Vous êtes sur le point de supprimer le client {{tag.nom}} {{tag.prenom}}. Etes-vous sûr de bien vouloir effectué cette opération ?"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+                    $('.dropdown-toggle').dropdown();
+                    $('#mytable').DataTable();
+                });    
+    </script>
+{% endblock %}

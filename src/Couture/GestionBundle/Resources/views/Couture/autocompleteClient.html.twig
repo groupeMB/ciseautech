@@ -1,0 +1,4 @@
+{% for client in results -%}
+    {{ {id: client.id, label: client.nom, value: client.prenom}|json_encode|raw }}
+    {%- if not loop.last %},{% endif -%}
+{%- endfor %}

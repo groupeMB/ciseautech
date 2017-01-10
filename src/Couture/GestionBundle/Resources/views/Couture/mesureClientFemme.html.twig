@@ -1,0 +1,193 @@
+{% extends "CoutureGestionBundle:Couture:index.html.twig" %}
+{% block main %}
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+            
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+    <div class="row">
+        <center><h4 class="panel-heading alert-warning">Prise de mesure du client : {{ client.nom }} {{ client.prenom }}</h4></center>
+        <div class="col-md-6">
+            <center>
+                <h4 class="panel-heading btn-danger">Mesure boubou</h4>
+            </center>
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.epaule, "Epaule", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.epaule) }}
+
+                <div class="col-sm-6">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.epaule, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.cou, "Cou", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.cou) }}
+
+                <div class="col-sm-6">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.cou, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.mancheLongue, "Manche Longue", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.mancheLongue) }}
+
+                <div class="col-sm-4">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.mancheLongue, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.mancheCourte, "Manche Courte", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.mancheCourte) }}
+
+                <div class="col-sm-4">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.mancheCourte, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.poignet, "Poignet", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.poignet) }}
+
+                <div class="col-sm-4">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.poignet, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.longueurBoubou, "Longueur Boubou", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.longueurBoubou) }}
+
+                <div class="col-sm-6">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.longueurBoubou, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+            <center>
+                <h4 class="panel-heading btn-info">Mesure Pantalon</h4>
+            </center>
+            
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.longueurPantalon, "Longueur Pantalon", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.longueurPantalon) }}
+
+                <div class="col-sm-6">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.longueurPantalon, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.ceinture, "Ceinture", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.ceinture) }}
+
+                <div class="col-sm-6">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.ceinture, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.cuisse, "Cuisse", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.cuisse) }}
+
+                <div class="col-sm-6">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.cuisse, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            
+            <center>
+                <h4 class="panel-heading btn-success">Spécifique aux femmes</h4>
+            </center>
+
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.longueurTaille, "Longueur Taille", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.longueurTaille) }}
+
+                <div class="col-sm-6">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.longueurTaille, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.hanche, "Hanche", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.hanche) }}
+
+                <div class="col-sm-6">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.hanche, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {# Génération du label. #}
+                {{ form_label(form.longueurTailleBasse, "Longueur Taille Basse", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.longueurTailleBasse) }}
+
+                <div class="col-sm-6">
+                    {# Génération de l'input. #}
+                    {{ form_widget(form.longueurTailleBasse, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="colorgraph">
+    {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+    <center>{{ form_widget(form.Validation, {'attr': {'class': 'btn btn-primary'}}) }}</center>
+
+    {# Génération automatique des champs pas encore écrits.
+        Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+        et tous les champs cachés (type « hidden »). #}
+    {{ form_rest(form) }}
+    {# Fermeture de la balise <form> du formulaire HTML #}
+    {{ form_end(form) }}
+    <br>
+{% endblock %}
