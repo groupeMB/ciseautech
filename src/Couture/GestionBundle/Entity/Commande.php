@@ -68,14 +68,7 @@ class Commande
      * })
      */
     private $client_id;
-
-    /**
-     * @var \Couture\GestionBundle\Entity\Commande
-     *
-     * @ORM\OneToMany(targetEntity="Couture\GestionBundle\Entity\Commande", mappedBy="commande")
-     *
-     */
-    private $commandeProduit;
+    
 
     /**
      * Get id
@@ -231,47 +224,5 @@ class Commande
     public function getClientId()
     {
         return $this->client_id;
-    }
-    
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->commandeProduit = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add commandeProduit
-     *
-     * @param \Couture\GestionBundle\Entity\Commande $commandeProduit
-     *
-     * @return Commande
-     */
-    public function addCommandeProduit(\Couture\GestionBundle\Entity\Commande $commandeProduit)
-    {
-        $this->commandeProduit[] = $commandeProduit;
-
-        return $this;
-    }
-
-    /**
-     * Remove commandeProduit
-     *
-     * @param \Couture\GestionBundle\Entity\Commande $commandeProduit
-     */
-    public function removeCommandeProduit(\Couture\GestionBundle\Entity\Commande $commandeProduit)
-    {
-        $this->commandeProduit->removeElement($commandeProduit);
-    }
-
-    /**
-     * Get commandeProduit
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCommandeProduit()
-    {
-        return $this->commandeProduit;
     }
 }
