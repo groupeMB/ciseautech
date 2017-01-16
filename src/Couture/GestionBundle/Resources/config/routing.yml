@@ -14,9 +14,15 @@ couture_gestion_couture:
     path:     /couture
     defaults: { _controller: CoutureGestionBundle:Couture:index }
 
+# Les routes concernant les clients   DEBUT
 couture_gestion_couture_add_client:
     path:     /couture/ajouter/client
     defaults: { _controller: CoutureGestionBundle:Couture:addClient }
+
+# Ajout des clients qui commandent des produits
+couture_gestion_couture_add_client_simple:
+    path:     /couture/ajouter/clientSimple
+    defaults: { _controller: CoutureGestionBundle:Couture:addClientSimple }
 
 couture_gestion_couture_list_client:
     path:     /couture/list/client
@@ -26,25 +32,47 @@ couture_gestion_couture_remove_client:
     path:     /couture/remove/client/{identifiant}
     defaults: { _controller: CoutureGestionBundle:Couture:removeClient }
 
+# Pour supprimer un client
+couture_gestion_couture_supprimer_client:
+    path:     /couture/supprimer/client/{identifiant}
+    defaults: { _controller: CoutureGestionBundle:Couture:supprimerClient }
+
 couture_gestion_couture_mesure_client:
-    path:     /couture/mesure/client/{identifiant}
+    path:     /couture/mesure/client/{id}
     defaults: { _controller: CoutureGestionBundle:Couture:mesureClient }
 
 couture_gestion_couture_afficher_client:
     path:     /couture/afficher/client/{identifiant}
     defaults: { _controller: CoutureGestionBundle:Couture:afficherClient }
 
-couture_gestion_couture_list_modele:
-    path:     /couture/list/modele
-    defaults: { _controller: CoutureGestionBundle:Couture:listModele }
-
 couture_gestion_couture_update_data:
     path:     /couture/update/modele/{id}/{data}/{table}/{colonne}
     defaults: { _controller: CoutureGestionBundle:Couture:updateData }
 
+# Les routes concernant les clients   FIN
+
+# des routes concerant les modèles    DEBUT.
 couture_gestion_couture_add_modele:
     path:     /couture/add/modele
     defaults: { _controller: CoutureGestionBundle:Couture:addModele }
+
+couture_gestion_couture_list_modele:
+    path:     /couture/list/modele
+    defaults: { _controller: CoutureGestionBundle:Couture:listModele }
+
+couture_gestion_couture_afficher_modele:
+    path:     /couture/afficher/modele/{identifiant}
+    defaults: { _controller: CoutureGestionBundle:Couture:afficherModele }
+
+couture_gestion_couture_modifier_modele:
+    path:     /couture/modifier/modele/{identifiant}
+    defaults: { _controller: CoutureGestionBundle:Couture:modifierModele }
+
+couture_gestion_couture_supprimer_modele:
+    path:     /couture/supprimer/modele/{identifiant}
+    defaults: { _controller: CoutureGestionBundle:Couture:supprimerModele }
+
+# des routes concerant les modèles    FIN.
 
 couture_gestion_couture_list_commande:
     path:     /couture/list/commande
@@ -58,6 +86,22 @@ couture_gestion_couture_new_add_commande:
     path:     /couture/add/commande/new/client
     defaults: { _controller: CoutureGestionBundle:Couture:formulaireNCCommande }
 
+#Pour un nouveau client qui veut effectuer une commande
+couture_gestion_couture_new_add_commande_client:
+    path:     /couture/add/commande/new/clientBis
+    defaults: { _controller: CoutureGestionBundle:Couture:formulaireNCCommandeClient }
+
+#Pour ajouter les mesures du nouveau client.
+couture_gestion_couture_mesure_new_client:
+    path:     /couture/mesure/new/client/{identifiant}
+    defaults: { _controller: CoutureGestionBundle:Couture:mesureNewClient }
+
+# Pour ajouter des mesures pour un client simple
+couture_gestion_couture_mesure_new_client_simple:
+    path:     /couture/mesure/new/client/{id}
+    defaults: { _controller: CoutureGestionBundle:Couture:newMesureClientSimple }
+
+
 couture_gestion_couture_potential_add_commande:
     path:     /couture/add/commande/potential/client
     defaults: { _controller: CoutureGestionBundle:Couture:formulairePCCommande }
@@ -66,13 +110,25 @@ couture_gestion_couture_add_commande_produit:
     path:     /couture/add/commandeProduit/{count}/{commande}
     defaults: { _controller: CoutureGestionBundle:Couture:addCommandeProduit }
 
+couture_gestion_couture_modifier_commande_produit:
+    path:     /couture/modifier/commandeProduit/{count}/{reference}
+    defaults: { _controller: CoutureGestionBundle:Couture:modifierCommandeProduit }
+
 couture_gestion_couture_resume_commande:
-    path:     /couture/resume/commande/{commande}
+    path:     /couture/resume/commande/{commande}/{identifiant}
     defaults: { _controller: CoutureGestionBundle:Couture:resumeCommande }
 
 couture_gestion_couture_autocomplete:
     path:     /couture/autocomplete/client
     defaults: { _controller: CoutureGestionBundle:Couture:clientAutocomplete }
+
+couture_gestion_couture_afficher_commande:
+    path:     /couture/afficher/commande/{reference}
+    defaults: { _controller: CoutureGestionBundle:Couture:afficherCommande }
+
+couture_gestion_couture_modifier_commande:
+    path:     /couture/modifier/commande/{reference}
+    defaults: { _controller: CoutureGestionBundle:Couture:modifierCommande }
 
 couture_gestion_comptabilite:
     path:     /comptabilite
@@ -85,3 +141,8 @@ couture_gestion_vente:
 couture_gestion_parametrage:
     path:     /parametrage
     defaults: { _controller: CoutureGestionBundle:Parametrage:index }
+
+
+gestionstock_ajouter_achete:
+    path:     /couture/ajouter
+    defaults: { _controller: CoutureGestionBundle:Couture:ajouter }

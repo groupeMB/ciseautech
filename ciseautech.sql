@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
--- Client :  127.0.0.1
--- Généré le :  Mer 28 Décembre 2016 à 21:29
--- Version du serveur :  5.6.17
--- Version de PHP :  5.5.12
+-- Client: localhost
+-- Généré le: Lun 16 Janvier 2017 à 12:30
+-- Version du serveur: 5.5.53-0ubuntu0.14.04.1-log
+-- Version de PHP: 5.5.9-1ubuntu4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données :  `ciseautech`
+-- Base de données: `ciseautech`
 --
 
 -- --------------------------------------------------------
@@ -126,21 +126,14 @@ CREATE TABLE IF NOT EXISTS `client` (
   UNIQUE KEY `UNIQ_C7440455450FF010` (`telephone`),
   UNIQUE KEY `UNIQ_C7440455C90409EC` (`identifiant`),
   UNIQUE KEY `UNIQ_C7440455E7927C74` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table `client`
 --
 
 INSERT INTO `client` (`id`, `nom`, `prenom`, `telephone`, `email`, `nombreCommande`, `nombreAchat`, `typeClient`, `identifiant`, `sexe`, `adresse`) VALUES
-(1, 'SY', 'Ibrahima', '777012937', 'ibrahimasy01@hotmail.fr', NULL, NULL, 'Gold', '1', 'M', 'HLM grand Yoff'),
-(2, 'SY', 'Harouna', '775282481', 'harouna_ucad@yahoo.fr', NULL, NULL, 'Gold', 'cl2', 'M', 'HLM grand Yoff'),
-(3, 'Mbaye', 'Khady Soda', '777449720', 'ksoda@hotmail.com', NULL, NULL, 'Silver', 'cl3', 'F', 'HLM grand Yoff'),
-(5, 'SY', 'Seydou', '772453698', 'seydousy@gmail.com', NULL, NULL, 'Silver', 'cl5', 'F', 'HLM Grand Yoff'),
-(8, 'SY', 'Aïcha', '784578541', 'aicha1182@gmail.com', NULL, NULL, 'Gold', 'cl7', 'F', 'HLM Grand Yoff'),
-(9, 'NGOM', 'Bassiro', '774569875', 'bg@gmail.com', NULL, NULL, 'Gold', 'cl8', 'M', 'Parcelles'),
-(10, 'DIONNA', 'Libasse Libasse', '774523168', 'ldionna@pamecas.sn', NULL, NULL, 'Gold', 'cl9', 'M', 'Cambérene'),
-(11, 'DIOUF', 'Serere Simon Pierre', '772135698', 'simzi@gmail.com', NULL, NULL, 'Bronze', 'cl10', 'M', 'Campus ESP');
+(1, 'BA', 'Ibrahimima', '773736093', 'yengue@ba.com', NULL, NULL, 'Gold', 'cl1', 'M', 'KM');
 
 -- --------------------------------------------------------
 
@@ -150,36 +143,23 @@ INSERT INTO `client` (`id`, `nom`, `prenom`, `telephone`, `email`, `nombreComman
 
 CREATE TABLE IF NOT EXISTS `commande` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `client_id` int(11) DEFAULT NULL,
   `reference` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `dateCommande` date NOT NULL,
-  `paieNet` int(11) DEFAULT NULL,
+  `nbModele` int(11) NOT NULL,
   `livraison` tinyint(1) NOT NULL,
   `dateLivraison` date DEFAULT NULL,
-  `avance` int(11) DEFAULT NULL,
-  `restant` int(11) DEFAULT NULL,
-  `idClient` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `nomClient` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `prenomClient` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `telephoneClient` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `nbModele` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `UNIQ_6EEAA67DAEA34913` (`reference`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+  UNIQUE KEY `UNIQ_6EEAA67DAEA34913` (`reference`),
+  KEY `IDX_6EEAA67D19EB6921` (`client_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table `commande`
 --
 
-INSERT INTO `commande` (`id`, `reference`, `dateCommande`, `paieNet`, `livraison`, `dateLivraison`, `avance`, `restant`, `idClient`, `nomClient`, `prenomClient`, `telephoneClient`, `nbModele`) VALUES
-(1, 'com1', '2016-09-28', 70000, 0, NULL, 20000, 25000, NULL, 'THIAM', 'Fatou Boury', '41258785', 3),
-(2, 'com2', '2016-09-28', NULL, 0, NULL, NULL, NULL, NULL, 'THIAM', 'Amadou', '774512369', 5),
-(3, 'com3', '2016-09-28', NULL, 0, NULL, NULL, NULL, NULL, 'THIAM', 'Amadou', '774512369', 5),
-(4, 'com4', '2016-09-29', NULL, 0, NULL, NULL, NULL, NULL, 'SY', 'Aïcha', '784578541', 2),
-(5, 'com5', '2016-09-29', NULL, 0, NULL, NULL, NULL, NULL, 'Mbaye', 'Diouma', '774125698', 2),
-(6, 'com6', '2016-10-04', NULL, 0, NULL, NULL, NULL, NULL, 'Fall', 'Marieme', '772146539', 2),
-(7, 'com7', '2016-10-09', NULL, 0, NULL, NULL, NULL, NULL, 'Ndiaye', 'Abdoul', '77456987', 2),
-(8, 'com8', '2016-12-28', NULL, 0, NULL, NULL, NULL, NULL, 'BA', 'Ibrahima', '774512369', 10),
-(9, 'com9', '2016-12-28', NULL, 0, NULL, NULL, NULL, NULL, 'BA', 'Ibrahima', '774512369', 2);
+INSERT INTO `commande` (`id`, `client_id`, `reference`, `dateCommande`, `nbModele`, `livraison`, `dateLivraison`) VALUES
+(1, 1, 'com1', '2017-01-15', 2, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -189,34 +169,26 @@ INSERT INTO `commande` (`id`, `reference`, `dateCommande`, `paieNet`, `livraison
 
 CREATE TABLE IF NOT EXISTS `commande_produit` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `modele_id` int(11) DEFAULT NULL,
+  `commande_id` int(11) DEFAULT NULL,
   `reference` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `quantite` int(11) NOT NULL,
   `prixUnitaire` int(11) NOT NULL,
   `montantTotal` int(11) NOT NULL,
-  `modele_id` int(11) DEFAULT NULL,
+  `avance` int(11) DEFAULT NULL,
+  `restant` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `IDX_DF1E9E87AC14B70A` (`modele_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=16 ;
+  KEY `IDX_DF1E9E87AC14B70A` (`modele_id`),
+  KEY `IDX_DF1E9E8782EA2E54` (`commande_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table `commande_produit`
 --
 
-INSERT INTO `commande_produit` (`id`, `reference`, `quantite`, `prixUnitaire`, `montantTotal`, `modele_id`) VALUES
-(1, 'com3', 5, 25000, 125000, NULL),
-(2, 'com3', 5, 35000, 175000, NULL),
-(3, 'com3', 2, 10000, 20000, NULL),
-(4, 'com3', 1, 25000, 25000, NULL),
-(6, 'com4', 10, 10000, 100000, 3),
-(7, 'com4', 5, 25000, 125000, 4),
-(8, 'com5', 1, 35000, 35000, 2),
-(9, 'com5', 3, 25000, 75000, 4),
-(10, 'com6', 1, 25000, 25000, 1),
-(11, 'com6', 3, 35000, 105000, 2),
-(12, 'com7', 2, 25000, 50000, 1),
-(13, 'com7', 2, 10000, 20000, 3),
-(14, 'com9', 2, 25000, 50000, 1),
-(15, 'com9', 5, 10000, 50000, 3);
+INSERT INTO `commande_produit` (`id`, `modele_id`, `commande_id`, `reference`, `quantite`, `prixUnitaire`, `montantTotal`, `avance`, `restant`) VALUES
+(1, 1, 1, 'com1', 50, 25000, 1250000, NULL, NULL),
+(3, 3, 1, 'com1', 20, 10000, 200000, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -281,14 +253,7 @@ CREATE TABLE IF NOT EXISTS `fos_user_user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_C560D76192FC23A8` (`username_canonical`),
   UNIQUE KEY `UNIQ_C560D761A0D96FBF` (`email_canonical`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
-
---
--- Contenu de la table `fos_user_user`
---
-
-INSERT INTO `fos_user_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `locked`, `expired`, `expires_at`, `confirmation_token`, `password_requested_at`, `roles`, `credentials_expired`, `credentials_expire_at`, `created_at`, `updated_at`, `date_of_birth`, `firstname`, `lastname`, `website`, `biography`, `gender`, `locale`, `timezone`, `phone`, `facebook_uid`, `facebook_name`, `facebook_data`, `twitter_uid`, `twitter_name`, `twitter_data`, `gplus_uid`, `gplus_name`, `gplus_data`, `token`, `two_step_code`) VALUES
-(1, 'admin', 'admin', 'admin@ciseautech.sn', 'admin@ciseautech.sn', 1, 'knkrjutd9k0gw4ssgocgwkkok8gkcsw', 'Hi9mWkgl5JVKKveHJrq9zlZQQZUrU03BGVwRX43OAmsh3TohOxkMI3vGVMqYVHKUDlrwUrfOprXTSfLcbNGQYQ==', '2016-09-25 14:01:42', 0, 0, NULL, NULL, NULL, 'a:1:{i:0;s:16:"ROLE_SUPER_ADMIN";}', 0, NULL, '2016-09-25 13:59:22', '2016-09-25 14:01:42', NULL, NULL, NULL, NULL, NULL, 'u', NULL, NULL, NULL, NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -337,6 +302,7 @@ CREATE TABLE IF NOT EXISTS `individu` (
 
 CREATE TABLE IF NOT EXISTS `mesure` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `client_id` int(11) DEFAULT NULL,
   `identifiant` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `epaule` int(11) NOT NULL,
   `cou` int(11) NOT NULL,
@@ -350,18 +316,16 @@ CREATE TABLE IF NOT EXISTS `mesure` (
   `hanche` int(11) DEFAULT NULL,
   `longueurTailleBasse` int(11) DEFAULT NULL,
   `poignet` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_5F1B6E7019EB6921` (`client_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table `mesure`
 --
 
-INSERT INTO `mesure` (`id`, `identifiant`, `epaule`, `cou`, `mancheLongue`, `mancheCourte`, `longueurBoubou`, `ceinture`, `longueurPantalon`, `cuisse`, `longueurTaille`, `hanche`, `longueurTailleBasse`, `poignet`) VALUES
-(1, '1', 70, 50, 90, 40, 170, 60, 100, 60, NULL, NULL, NULL, 20),
-(2, 'cl2', 70, 50, 90, 40, 170, 60, 100, 60, NULL, NULL, NULL, 20),
-(3, 'cl7', 30, 25, 75, 35, 140, 45, 95, 25, 45, 10, 50, 15),
-(4, 'cl9', 70, 50, 90, 40, 170, 60, 100, 60, NULL, NULL, NULL, 20);
+INSERT INTO `mesure` (`id`, `client_id`, `identifiant`, `epaule`, `cou`, `mancheLongue`, `mancheCourte`, `longueurBoubou`, `ceinture`, `longueurPantalon`, `cuisse`, `longueurTaille`, `hanche`, `longueurTailleBasse`, `poignet`) VALUES
+(1, 1, 'cl1', 70, 50, 90, 40, 170, 60, 100, 60, NULL, NULL, NULL, 20);
 
 -- --------------------------------------------------------
 
@@ -451,9 +415,16 @@ ALTER TABLE `acl_object_identity_ancestors`
   ADD CONSTRAINT `FK_825DE299C671CEA1` FOREIGN KEY (`ancestor_id`) REFERENCES `acl_object_identities` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Contraintes pour la table `commande`
+--
+ALTER TABLE `commande`
+  ADD CONSTRAINT `FK_6EEAA67D19EB6921` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`);
+
+--
 -- Contraintes pour la table `commande_produit`
 --
 ALTER TABLE `commande_produit`
+  ADD CONSTRAINT `FK_DF1E9E8782EA2E54` FOREIGN KEY (`commande_id`) REFERENCES `commande` (`id`),
   ADD CONSTRAINT `FK_DF1E9E87AC14B70A` FOREIGN KEY (`modele_id`) REFERENCES `modele` (`id`);
 
 --
@@ -462,6 +433,12 @@ ALTER TABLE `commande_produit`
 ALTER TABLE `fos_user_user_group`
   ADD CONSTRAINT `FK_B3C77447A76ED395` FOREIGN KEY (`user_id`) REFERENCES `fos_user_user` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_B3C77447FE54D947` FOREIGN KEY (`group_id`) REFERENCES `fos_user_group` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `mesure`
+--
+ALTER TABLE `mesure`
+  ADD CONSTRAINT `FK_5F1B6E7019EB6921` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

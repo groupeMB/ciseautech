@@ -25,8 +25,7 @@ class CommandeProduitType extends AbstractType
                     'placeholder' => 'Eg. 771112233 '
                 )
             ))
-            ->add('Poursuivre', 'submit')
-        ;
+            ->add('Poursuivre', 'submit');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

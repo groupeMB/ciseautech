@@ -1,7 +1,7 @@
 {% extends "CoutureGestionBundle:Couture:index.html.twig" %}
 {% block main %}
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-8">
         	<center><h4 class="panel-heading alert-danger">Formulaire d'ajout d'une nouvelle commande</h4></center>
             <hr class="colorgraph">
             <div class="col-md-1">
@@ -10,7 +10,7 @@
                 <div class="panel panel-success">
                     <div class="panel-heading"><center><h4>Nouveau client</h4></center></div>
                     <div class="panel-body">
-                        <a href="{{ path("couture_gestion_couture_new_add_commande")}}" class="list-group-item"><button type="button" class="btn btn-success btn-block"><span class="glyphicon glyphicon-plus"></span> Nouvelle Commande</button></a>
+                        <a href="{{ path("couture_gestion_couture_new_add_commande_client")}}" class="list-group-item"><button type="button" class="btn btn-success btn-block"><span class="glyphicon glyphicon-plus"></span> Nouvelle Commande</button></a>
                     </div>
                 </div>
             </div>
@@ -18,16 +18,26 @@
                 <div class="panel panel-danger">
                     <div class="panel-heading"><center><h4>Client potentiel</h4></center></div>
                     <div class="panel-body">
-                        <a href="{{ path("couture_gestion_couture_potential_add_commande")}}" class="list-group-item"><button type="button" class="btn btn-danger btn-block"><span class="glyphicon glyphicon-plus"></span> Nouvelle Commande</button></a>
+                        <a href="{{ path("couture_gestion_couture_new_add_commande")}}" class="list-group-item"><button type="button" class="btn btn-danger btn-block"><span class="glyphicon glyphicon-plus"></span> Nouvelle Commande</button></a>
                     </div>
                 </div>
             </div>
             <div class="col-md-1">
             </div>
         </div>
-        <div class="col-md-3">
-            
-            
+        <div class="col-md-4">
+            <center><h4> Actions à effectuer</h4></center>
+            <hr class="colorgraph">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="{{ path ('couture_gestion_couture_list_commande') }}"><button type="button" class="btn btn-success btn-block"><span class="glyphicon glyphicon-list"></span> Liste des commandes</button></a>
+                </li>
+            </ul>
+            <hr class="colorgraph">
+            <center>
+                <img src="{{ app.request.schemeAndHttpHost ~ asset('bundles/couturegestion/images/client1.png') }}" width="70%" alt="">
+                <h5>Avec Ciseau'Tech, Simplifiez votre quotidien !!!</h5>
+            </center>
         </div>
     </div>
 {% endblock %}

@@ -79,7 +79,6 @@ class MesureFemmeType extends AbstractType
                     'placeholder' => 'Eg. 20  ',
                 )
             ))
-            
             ->add('Validation', 'submit')
         ;
     }

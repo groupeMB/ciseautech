@@ -112,6 +112,11 @@ class Mesure
      */
     private $poignet;
 
+    /**
+     * @ORM\OneToOne(targetEntity="Couture\GestionBundle\Entity\Client",  inversedBy="mesure")
+     */
+    private $client;
+
 
     /**
      * Get id
@@ -434,5 +439,29 @@ class Mesure
     {
         return $this->poignet;
     }
-}
+    
 
+    /**
+     * Set client
+     *
+     * @param \Couture\GestionBundle\Entity\Client $client
+     *
+     * @return Mesure
+     */
+    public function setClient(\Couture\GestionBundle\Entity\Client $client = null)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * Get client
+     *
+     * @return \Couture\GestionBundle\Entity\Client
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+}

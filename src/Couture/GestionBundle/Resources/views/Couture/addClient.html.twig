@@ -106,11 +106,22 @@
             </div>
         </div>
         <div class="col-md-4">
+            <center><h4 class="panel-heading alert-danger">Actions à effectuer</h4></center>
+            <hr class="colorgraph">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="{{ path("couture_gestion_couture_list_client")}}"><button type="button" class="btn btn-success btn-block"><span class="glyphicon glyphicon-list"></span> Lister les clients</button></a>
+                </li>
+            </ul>
+        </div>
+        <!--
+        <div class="col-md-3">
             <h4>Fidélisation de la clientèle</h4>
             <hr class="colorgraph">
             <img src="{{ app.request.schemeAndHttpHost ~ asset('bundles/couturegestion/images/client2.png') }}" alt="">
             <img src="{{ app.request.schemeAndHttpHost ~ asset('bundles/couturegestion/images/medaille.png') }}" alt="">
             <h4></h4>
         </div>
+        -->
     </div>
 {% endblock %}

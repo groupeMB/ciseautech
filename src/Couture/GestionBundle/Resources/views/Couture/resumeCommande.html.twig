@@ -4,15 +4,16 @@
         <div class="col-md-3">
         	<center><h4>Details commande</h4></center>
                 <hr class="colorgraph">
-        	<ul class="list-group">
-        		
-			 	<li class="list-group-item">Prenom client : {{ commande.prenomClient }}</li>
-			 	<li class="list-group-item">Nom client : {{ commande.nomClient }}</li>
-                <li class="list-group-item">Télephone client : {{ commande.telephoneClient }}</li>
-			 	<li class="list-group-item">Date commande : {{ commande.dateCommande | date('Y-m-d')}}</li>
-			 	<li class="list-group-item">Etat : Non livré</li>
-			 	<li class="list-group-item">Nombre de modèles : {{ commande.nbModele }}</li>
-			</ul>
+            <ul class="list-group">
+                <li class="list-group-item">Identifiant : {{ client.identifiant }}</li>
+                <li class="list-group-item">Prenom : {{ client.prenom }}</li>
+                <li class="list-group-item">Nom : {{ client.nom }}</li>
+                <li class="list-group-item">Sexe : {{ client.sexe }}</li>
+                <li class="list-group-item">Adresse : {{ client.adresse }}</li>
+                <li class="list-group-item">Telephone : {{ client.telephone }}</li>
+                <li class="list-group-item">Email : {{ client.email }}</li>
+                <li class="list-group-item">Type Client : {{ client.typeClient }}</li>
+            </ul>
         </div>
         <div class="col-md-6">
         	<center><h4>Détails modéles commandés</h4></center>
@@ -62,10 +63,10 @@
         	</li>
         	
         	<li class="list-group-item">
-        		<button type="button" class="btn btn-warning btn-block"><span class="glyphicon glyphicon-stats"></span> Mesure Client</button>
+        		<button type="button" class="btn btn-warning btn-block"><span class="glyphicon glyphicon-stats"></span> liste Client</button>
         	</li>
             <li class="list-group-item">
-                <button type="button" class="btn btn-warning btn-block"><span class="glyphicon glyphicon-stats"></span> Liste Commande</button>
+                <button type="button" class="btn btn-success btn-block"><span class="glyphicon glyphicon-stats"></span> Liste Commande</button>
             </li>
         </ul>
         <hr class="colorgraph">

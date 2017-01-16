@@ -7,7 +7,21 @@
 
     <div class="row">
         <center><h4 class="panel-heading alert-warning">Prise de mesure du client : {{ client.nom }} {{ client.prenom }}</h4></center>
-        <div class="col-md-6">
+        <div class="col-md-4">
+            <center><h4>Informations personnelles</h4></center>
+            <hr class="colorgraph">
+            <ul class="list-group">
+                <li class="list-group-item">Identifiant : {{ client.identifiant }}</li>
+                <li class="list-group-item">Prenom : {{ client.prenom }}</li>
+                <li class="list-group-item">Nom : {{ client.nom }}</li>
+                <li class="list-group-item">Sexe : {{ client.sexe }}</li>
+                <li class="list-group-item">Adresse : {{ client.adresse }}</li>
+                <li class="list-group-item">Telephone : {{ client.telephone }}</li>
+                <li class="list-group-item">Email : {{ client.email }}</li>
+                <li class="list-group-item">Type Client : {{ client.typeClient }}</li>
+            </ul>
+        </div>
+        <div class="col-md-4">
             <center>
                 <h4 class="panel-heading btn-danger">Mesure boubou</h4>
             </center>
@@ -91,7 +105,7 @@
 
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-4">
             <center>
                 <h4 class="panel-heading btn-info">Mesure Pantalon</h4>
             </center>
@@ -134,7 +148,7 @@
                     {{ form_widget(form.cuisse, {'attr': {'class': 'form-control'}}) }}
                 </div>
             </div>
-            
+
             <center>
                 <h4 class="panel-heading btn-success">Spécifique aux femmes</h4>
             </center>

@@ -140,9 +140,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::indexAction',  '_route' => 'couture_gestion_couture',);
                 }
 
-                // couture_gestion_couture_add_client
-                if ($pathinfo === '/couture/ajouter/client') {
-                    return array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::addClientAction',  '_route' => 'couture_gestion_couture_add_client',);
+                if (0 === strpos($pathinfo, '/couture/ajouter/client')) {
+                    // couture_gestion_couture_add_client
+                    if ($pathinfo === '/couture/ajouter/client') {
+                        return array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::addClientAction',  '_route' => 'couture_gestion_couture_add_client',);
+                    }
+
+                    // couture_gestion_couture_add_client_simple
+                    if ($pathinfo === '/couture/ajouter/clientSimple') {
+                        return array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::addClientSimpleAction',  '_route' => 'couture_gestion_couture_add_client_simple',);
+                    }
+
                 }
 
                 // couture_gestion_couture_list_client
@@ -155,19 +163,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'couture_gestion_couture_remove_client')), array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::removeClientAction',));
                 }
 
+                // couture_gestion_couture_supprimer_client
+                if (0 === strpos($pathinfo, '/couture/supprimer/client') && preg_match('#^/couture/supprimer/client/(?P<identifiant>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'couture_gestion_couture_supprimer_client')), array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::supprimerClientAction',));
+                }
+
                 // couture_gestion_couture_mesure_client
-                if (0 === strpos($pathinfo, '/couture/mesure/client') && preg_match('#^/couture/mesure/client/(?P<identifiant>[^/]++)$#s', $pathinfo, $matches)) {
+                if (0 === strpos($pathinfo, '/couture/mesure/client') && preg_match('#^/couture/mesure/client/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'couture_gestion_couture_mesure_client')), array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::mesureClientAction',));
                 }
 
                 // couture_gestion_couture_afficher_client
                 if (0 === strpos($pathinfo, '/couture/afficher/client') && preg_match('#^/couture/afficher/client/(?P<identifiant>[^/]++)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'couture_gestion_couture_afficher_client')), array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::afficherClientAction',));
-                }
-
-                // couture_gestion_couture_list_modele
-                if ($pathinfo === '/couture/list/modele') {
-                    return array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::listModeleAction',  '_route' => 'couture_gestion_couture_list_modele',);
                 }
 
                 // couture_gestion_couture_update_data
@@ -178,6 +186,26 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 // couture_gestion_couture_add_modele
                 if ($pathinfo === '/couture/add/modele') {
                     return array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::addModeleAction',  '_route' => 'couture_gestion_couture_add_modele',);
+                }
+
+                // couture_gestion_couture_list_modele
+                if ($pathinfo === '/couture/list/modele') {
+                    return array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::listModeleAction',  '_route' => 'couture_gestion_couture_list_modele',);
+                }
+
+                // couture_gestion_couture_afficher_modele
+                if (0 === strpos($pathinfo, '/couture/afficher/modele') && preg_match('#^/couture/afficher/modele/(?P<identifiant>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'couture_gestion_couture_afficher_modele')), array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::afficherModeleAction',));
+                }
+
+                // couture_gestion_couture_modifier_modele
+                if (0 === strpos($pathinfo, '/couture/modifier/modele') && preg_match('#^/couture/modifier/modele/(?P<identifiant>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'couture_gestion_couture_modifier_modele')), array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::modifierModeleAction',));
+                }
+
+                // couture_gestion_couture_supprimer_modele
+                if (0 === strpos($pathinfo, '/couture/supprimer/modele') && preg_match('#^/couture/supprimer/modele/(?P<identifiant>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'couture_gestion_couture_supprimer_modele')), array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::supprimerModeleAction',));
                 }
 
                 // couture_gestion_couture_list_commande
@@ -191,11 +219,35 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                         return array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::addCommandeAction',  '_route' => 'couture_gestion_couture_add_commande',);
                     }
 
-                    // couture_gestion_couture_new_add_commande
-                    if ($pathinfo === '/couture/add/commande/new/client') {
-                        return array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::formulaireNCCommandeAction',  '_route' => 'couture_gestion_couture_new_add_commande',);
+                    if (0 === strpos($pathinfo, '/couture/add/commande/new/client')) {
+                        // couture_gestion_couture_new_add_commande
+                        if ($pathinfo === '/couture/add/commande/new/client') {
+                            return array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::formulaireNCCommandeAction',  '_route' => 'couture_gestion_couture_new_add_commande',);
+                        }
+
+                        // couture_gestion_couture_new_add_commande_client
+                        if ($pathinfo === '/couture/add/commande/new/clientBis') {
+                            return array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::formulaireNCCommandeClientAction',  '_route' => 'couture_gestion_couture_new_add_commande_client',);
+                        }
+
                     }
 
+                }
+
+                if (0 === strpos($pathinfo, '/couture/mesure/new/client')) {
+                    // couture_gestion_couture_mesure_new_client
+                    if (preg_match('#^/couture/mesure/new/client/(?P<identifiant>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'couture_gestion_couture_mesure_new_client')), array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::mesureNewClientAction',));
+                    }
+
+                    // couture_gestion_couture_mesure_new_client_simple
+                    if (preg_match('#^/couture/mesure/new/client/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'couture_gestion_couture_mesure_new_client_simple')), array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::newMesureClientSimpleAction',));
+                    }
+
+                }
+
+                if (0 === strpos($pathinfo, '/couture/add/commande')) {
                     // couture_gestion_couture_potential_add_commande
                     if ($pathinfo === '/couture/add/commande/potential/client') {
                         return array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::formulairePCCommandeAction',  '_route' => 'couture_gestion_couture_potential_add_commande',);
@@ -208,14 +260,32 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
                 }
 
+                // couture_gestion_couture_modifier_commande_produit
+                if (0 === strpos($pathinfo, '/couture/modifier/commandeProduit') && preg_match('#^/couture/modifier/commandeProduit/(?P<count>[^/]++)/(?P<reference>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'couture_gestion_couture_modifier_commande_produit')), array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::modifierCommandeProduitAction',));
+                }
+
                 // couture_gestion_couture_resume_commande
-                if (0 === strpos($pathinfo, '/couture/resume/commande') && preg_match('#^/couture/resume/commande/(?P<commande>[^/]++)$#s', $pathinfo, $matches)) {
+                if (0 === strpos($pathinfo, '/couture/resume/commande') && preg_match('#^/couture/resume/commande/(?P<commande>[^/]++)/(?P<identifiant>[^/]++)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'couture_gestion_couture_resume_commande')), array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::resumeCommandeAction',));
                 }
 
-                // couture_gestion_couture_autocomplete
-                if ($pathinfo === '/couture/autocomplete/client') {
-                    return array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::clientAutocompleteAction',  '_route' => 'couture_gestion_couture_autocomplete',);
+                if (0 === strpos($pathinfo, '/couture/a')) {
+                    // couture_gestion_couture_autocomplete
+                    if ($pathinfo === '/couture/autocomplete/client') {
+                        return array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::clientAutocompleteAction',  '_route' => 'couture_gestion_couture_autocomplete',);
+                    }
+
+                    // couture_gestion_couture_afficher_commande
+                    if (0 === strpos($pathinfo, '/couture/afficher/commande') && preg_match('#^/couture/afficher/commande/(?P<reference>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'couture_gestion_couture_afficher_commande')), array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::afficherCommandeAction',));
+                    }
+
+                }
+
+                // couture_gestion_couture_modifier_commande
+                if (0 === strpos($pathinfo, '/couture/modifier/commande') && preg_match('#^/couture/modifier/commande/(?P<reference>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'couture_gestion_couture_modifier_commande')), array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::modifierCommandeAction',));
                 }
 
             }
@@ -235,6 +305,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         // couture_gestion_parametrage
         if ($pathinfo === '/parametrage') {
             return array (  '_controller' => 'Couture\\GestionBundle\\Controller\\ParametrageController::indexAction',  '_route' => 'couture_gestion_parametrage',);
+        }
+
+        // gestionstock_ajouter_achete
+        if ($pathinfo === '/couture/ajouter') {
+            return array (  '_controller' => 'Couture\\GestionBundle\\Controller\\CoutureController::ajouterAction',  '_route' => 'gestionstock_ajouter_achete',);
         }
 
         // homepage

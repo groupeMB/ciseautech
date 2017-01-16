@@ -1,0 +1,37 @@
+{% extends "CoutureGestionBundle:Couture:index.html.twig" %}
+{% block main %}
+    <div class="row">
+        <div class="col-md-8">
+            <center><h4>Commande éffectué par le client {{ commandeProduit.commande.clientId.nom }} {{ commandeProduit.commande.clientId.prenom }}</h4></center>
+            <hr class="colorgraph">
+            <ul class="list-group">
+                <li class="list-group-item">Identifiant : {{ commandeProduit.commande.reference }}</li>
+                <li class="list-group-item">Date commande : {{ commandeProduit.commande.dateCommande | date('d-m-Y') }}</li>
+                <li class="list-group-item">Quantité de modèle : {{ commandeProduit.commande.nbModele }}</li>
+                <li class="list-group-item">Somme à payer : {{ commandeProduit.montantTotal }}</li>
+                <li class="list-group-item">Livraison : {{ commandeProduit.commande.livraison }}</li>
+                <li class="list-group-item">Date de livriason : {{ commandeProduit.commande.dateLivraison | date('d-m-Y') }}</li>
+                <li class="list-group-item">Somme avancée : {{ commandeProduit.avance }}</li>
+                <li class="list-group-item">Somme restant : {{ commandeProduit.restant }}</li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <center><h4> Actions à effectuer</h4></center>
+            <hr class="colorgraph">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="{{ path ('couture_gestion_couture_list_commande') }}"><button type="button" class="btn btn-success btn-block"><span class="glyphicon glyphicon-list"></span> Liste des commandes</button></a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#"><button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-plus"></span> ajouter Mesure pour ce client</button></a>
+                </li>
+            </ul>
+            <hr class="colorgraph">
+            <center>
+                <img src="{{ app.request.schemeAndHttpHost ~ asset('bundles/couturegestion/images/client1.png') }}" width="70%" alt="">
+                <h5>Avec Ciseau'Tech, Simplifiez votre quotidien !!!</h5>
+            </center>
+        </div>
+    </div>
+{% endblock %}
+

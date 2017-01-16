@@ -92,6 +92,11 @@ class Client
     private $adresse;
 
     /**
+     * @ORM\OneToOne(targetEntity="Couture\GestionBundle\Entity\Mesure", mappedBy="client")
+     */
+    private $mesure;
+
+    /**
      * Get id
      *
      * @return int
@@ -344,5 +349,35 @@ class Client
     public function getUniqueName()
     {
         return sprintf('%s - %s - %s', $this->identifiant, $this->nom, $this->prenom);
+    }
+
+    public function __toString()
+    {
+        return $this->getTelephone();
+    }
+    
+
+    /**
+     * Set mesure
+     *
+     * @param \Couture\GestionBundle\Entity\Mesure $mesure
+     *
+     * @return Client
+     */
+    public function setMesure(\Couture\GestionBundle\Entity\Mesure $mesure = null)
+    {
+        $this->mesure = $mesure;
+
+        return $this;
+    }
+
+    /**
+     * Get mesure
+     *
+     * @return \Couture\GestionBundle\Entity\Mesure
+     */
+    public function getMesure()
+    {
+        return $this->mesure;
     }
 }

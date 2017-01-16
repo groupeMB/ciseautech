@@ -1,0 +1,41 @@
+{% extends "CoutureGestionBundle:Couture:index.html.twig" %}
+{% block main %}
+    <div class="row">
+        <div class="col-md-4">
+            <center><h4>Informations personnelles</h4></center>
+            <hr class="colorgraph">
+            <ul class="list-group">
+                <li class="list-group-item">Référence : {{ modele.reference }}</li>
+                <li class="list-group-item">Désignation : {{ modele.designation }}</li>
+                <li class="list-group-item">Description : {{ modele.description }}</li>
+                <li class="list-group-item">Prix unitaire : {{ modele.cout }} FCFA</li>
+                <li class="list-group-item">Type de modèle : {{ modele.typeModele }}</li>
+                <li class="list-group-item">Durée de confession : {{ modele.dureeConfection }} jours</li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <center><h4> Image du modèle</h4></center>
+            <hr class="colorgraph">
+            <center>
+                <img src="{{ app.request.schemeAndHttpHost ~ asset('bundles/couturegestion/images/client1.png') }}" width="70%" alt="">
+            </center>
+        </div>
+        <div class="col-md-4">
+            <center><h4> Actions à effectuer</h4></center>
+            <hr class="colorgraph">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="{{ path("couture_gestion_couture_list_modele")}}"><button type="button" class="btn btn-warning btn-block"><span class="glyphicon glyphicon-list"></span> Liste des modèles</button></a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{{ path("couture_gestion_couture_add_modele")}}"><button type="button" class="btn btn-success btn-block"><span class="glyphicon glyphicon-edit"></span> Nouveau modèle</button></a>
+                </li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-stats"></span> Statiqtique du modèle</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <center><h5>Avec Ciseau'Tech, Simplifiez votre quotidien !!!</h5></center>
+{% endblock %}
+

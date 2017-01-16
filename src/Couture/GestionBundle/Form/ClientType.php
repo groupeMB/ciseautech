@@ -39,7 +39,7 @@ class ClientType extends AbstractType
                     'placeholder' => 'someone@example.com'
                 )
             ))
-            ->add('typeClient', 'choice', array('choices' => array('Gold'=>'Gold','Silver'=>'Silver', 'Bronze'=>'Bronze')))
+            ->add('typeClient', 'choice', array('choices' => array('Bronze'=>'Bronze','Silver'=>'Silver', 'Gold'=>'Gold')))
             ->add('adresse')
             ->add('Creation', 'submit')
         ;

@@ -15,7 +15,7 @@ class CommandePCType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('idClient','PUGX\AutocompleterBundle\Form\Type\AutocompleteType', ['class' => 'CoutureGestionBundle:Client'])
+            //->add('client_id','PUGX\AutocompleterBundle\Form\Type\AutocompleteType', ['class' => 'CoutureGestionBundle:Client'])
             ->add('nbModele', 'number', array(
                 'attr' => array(
                     'placeholder' => 'Eg. 12'

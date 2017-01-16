@@ -15,21 +15,9 @@ class CommandeNCType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nomClient','text', array(
-                'attr' => array(
-                    'placeholder' => 'minimum 2 caracteres',
-                    'pattern'     => '.{2,}' //minlength
-                )
-            ))
-            ->add('prenomClient','text', array(
-                'attr' => array(
-                    'placeholder' => 'minimum 2 caracteres'
-                )
-            ))
-            ->add('telephoneClient', 'number', array(
-                'attr' => array(
-                    'placeholder' => 'Eg. 771112233 '
-                )
+            ->add('client_id','entity', array(
+                'class' => 'CoutureGestionBundle:Client',
+                'choice_label' => 'telephone'
             ))
             ->add('nbModele', 'number', array(
                 'attr' => array(
@@ -46,6 +34,6 @@ class CommandeNCType extends AbstractType
             'data_class' => 'Couture\GestionBundle\Entity\Commande'
         ));
     }
-    
-    
+
+
 }

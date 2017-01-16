@@ -54,6 +54,28 @@ class CommandeProduit
      */
     private $montantTotal;
 
+    /**
+     * @var \Couture\GestionBundle\Entity\Commande
+     *
+     * @ORM\ManyToOne(targetEntity="Couture\GestionBundle\Entity\Commande", inversedBy="commandeProduit")
+     *
+     */
+    private $commande;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="avance", type="integer", nullable=true)
+     */
+    private $avance;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="restant", type="integer", nullable=true)
+     */
+    private $restant;
+
 
     /**
      * Get id
@@ -184,5 +206,76 @@ class CommandeProduit
     {
         return $this->montantTotal;
     }
-}
 
+    /**
+     * Set commande
+     *
+     * @param \Couture\GestionBundle\Entity\Commande $commande
+     *
+     * @return CommandeProduit
+     */
+    public function setCommande(\Couture\GestionBundle\Entity\Commande $commande = null)
+    {
+        $this->commande = $commande;
+
+        return $this;
+    }
+
+    /**
+     * Get commande
+     *
+     * @return \Couture\GestionBundle\Entity\Commande
+     */
+    public function getCommande()
+    {
+        return $this->commande;
+    }
+
+    /**
+     * Set avance
+     *
+     * @param integer $avance
+     *
+     * @return CommandeProduit
+     */
+    public function setAvance($avance)
+    {
+        $this->avance = $avance;
+
+        return $this;
+    }
+
+    /**
+     * Get avance
+     *
+     * @return integer
+     */
+    public function getAvance()
+    {
+        return $this->avance;
+    }
+
+    /**
+     * Set restant
+     *
+     * @param integer $restant
+     *
+     * @return CommandeProduit
+     */
+    public function setRestant($restant)
+    {
+        $this->restant = $restant;
+
+        return $this;
+    }
+
+    /**
+     * Get restant
+     *
+     * @return integer
+     */
+    public function getRestant()
+    {
+        return $this->restant;
+    }
+}

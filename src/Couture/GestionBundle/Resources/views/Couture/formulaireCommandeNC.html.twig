@@ -11,37 +11,14 @@
                 <hr>
                 <div class="form-group">
                     {# Génération du label. #}
-                    {{ form_label(form.nomClient, "Nom Client", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    {{ form_label(form.client_id, "Téléphone du client", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
 
                     {# Affichage des erreurs pour ce champ précis. #}
-                    {{ form_errors(form.nomClient) }}
-                    <div class="col-sm-6">
-                        {# Génération de l'input. #}
-                        {{ form_widget(form.nomClient, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {# Génération du label. #}
-                    {{ form_label(form.prenomClient, "Prénoms Client", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
-
-                    {# Affichage des erreurs pour ce champ précis. #}
-                    {{ form_errors(form.prenomClient) }}
+                    {{ form_errors(form.client_id) }}
 
                     <div class="col-sm-6">
                         {# Génération de l'input. #}
-                        {{ form_widget(form.prenomClient, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {# Génération du label. #}
-                    {{ form_label(form.telephoneClient, "Telephone Client", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
-
-                    {# Affichage des erreurs pour ce champ pdescriptions. #}
-                    {{ form_errors(form.telephoneClient) }}
-
-                    <div class="col-sm-6">
-                        {# Génération de l'input. #}
-                        {{ form_widget(form.telephoneClient, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_widget(form.client_id, {'attr': {'class': 'form-control'}}) }}
                     </div>
                 </div>
                 <div class="form-group">
@@ -63,7 +40,7 @@
                     Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
                     et tous les champs cachés (type « hidden »). #}
                 {{ form_rest(form) }}
-          
+
                 {# Fermeture de la balise <form> du formulaire HTML #}
                 {{ form_end(form) }}
             </div>

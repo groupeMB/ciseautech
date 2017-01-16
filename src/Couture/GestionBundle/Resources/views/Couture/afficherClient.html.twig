@@ -83,17 +83,14 @@
     	<center><h4> Actions à effectuer</h4></center>
         <hr class="colorgraph">
         <ul class="list-group">
+            <li class="list-group-item">
+                <a href="{{ path("couture_gestion_couture_list_client")}}"><button type="button" class="btn btn-success btn-block"><span class="glyphicon glyphicon-list"></span> Liste des clients</button></a>
+            </li>
+            <li class="list-group-item">
+                <a href="{{ path("couture_gestion_couture_new_add_commande")}}"><button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-plus"></span> Nouvelle commande</button></a>
+            </li>
         	<li class="list-group-item">
-        		<button type="button" class="btn btn-success btn-block"><span class="glyphicon glyphicon-list"></span> Nouvelle commande</button>
-        	</li>
-        	<li class="list-group-item">
-        		<button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-edit"></span> Modification mesure</button>
-        	</li>
-        	<li class="list-group-item">
-        		<a href="{{ path("couture_gestion_couture_remove_client", {'identifiant': client.identifiant})}}" data-confirm="Vous êtes sur le point de supprimer le client {{client.nom}} {{client.prenom}}. Etes-vous sûr de bien vouloir effectué cette opération ?"><button type="button" class="btn btn-danger btn-block"><span class="glyphicon glyphicon-remove"></span> Suppression client </button></a>
-        	</li>
-        	<li class="list-group-item">
-        		<button type="button" class="btn btn-warning btn-block"><span class="glyphicon glyphicon-stats"></span> Statiqtiques client</button>
+        		<button type="button" class="btn btn-warning btn-block"><span class="glyphicon glyphicon-stats"></span> Statiqtiques du client</button>
         	</li>
         </ul>
         <hr class="colorgraph">
